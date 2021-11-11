@@ -6,3 +6,4 @@
 /generated
 /simulator/msvs/screenshots
 *.sdf
+*.suo
