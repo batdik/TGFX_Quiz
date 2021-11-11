@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <ItemGroup>
     <Filter Include="Header Files">
@@ -177,9 +177,6 @@
     </Filter>
     <Filter Include="Source Files\gui\mainscreen_screen">
       <UniqueIdentifier>C0F40FB5-2191-FFC0-5ED2-0F9CFE70ACB8</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\gui\configscreen_screen">
-      <UniqueIdentifier>B84A626D-3B4E-D4D0-4085-91182C8993C4</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\generated\gui_generated\mainscreen_screen">
       <UniqueIdentifier>CB312823-9821-7BAF-193E-FACB024725CA</UniqueIdentifier>
@@ -720,12 +717,6 @@
     </ClInclude>
     <ClInclude Include="..\..\generated\simulator\include\simulator\video\SoftwareMJPEGDecoder.hpp">
       <Filter>Header Files\generated\simulator\include\simulator\video</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gui\include\gui\configscreen_screen\ConfigScreenPresenter.hpp">
-      <Filter>Header Files\gui\configscreen_screen</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gui\include\gui\configscreen_screen\ConfigScreenView.hpp">
-      <Filter>Header Files\gui\configscreen_screen</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gui\include\gui\mainscreen_screen\MainScreenPresenter.hpp">
       <Filter>Header Files\gui\mainscreen_screen</Filter>

@@ -14,9 +14,8 @@ class MainScreenView : public MainScreenViewBase
 {
 public:
     MainScreenView();
-    virtual ~MainScreenView() {}
-    virtual void setupScreen();
-    virtual void tearDownScreen();
+    void setupScreen() final;
+	void tearDownScreen() final;
 
 protected:
 	enum TrajectoryPointsId_t {
