@@ -1,2 +1,2 @@
-# TouchGFX_QuizFinal
-see readme.docx
+# TouchGFX_Quiz
+[see readme.docx](./readme.docx)
