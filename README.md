@@ -1,2 +1,2 @@
 # TouchGFX_Quiz
-[see readme.docx](./readme.docx)
+[see readme.docx](https://github.com/bonev-st/TouchGFX_Quiz1/readme.docx)
