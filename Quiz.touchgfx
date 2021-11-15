@@ -274,7 +274,44 @@
             }
           }
         ],
-        "Interactions": []
+        "Interactions": [
+          {
+            "InteractionName": "gotoMainScreenFromCancel",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "ButtonCancel"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "MainScreen"
+            }
+          },
+          {
+            "InteractionName": "saveSetAngle",
+            "HasCompletedTrigger": true,
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "ButtonDone"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "saveSetAngle"
+            }
+          },
+          {
+            "InteractionName": "gotoMainScreenFromDone",
+            "Trigger": {
+              "Type": "TriggerInteractionCompleted",
+              "InteractionToTriggerOn": "saveSetAngle"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "MainScreen"
+            }
+          }
+        ]
       }
     ],
     "CustomContainerDefinitions": [
