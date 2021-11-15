@@ -202,6 +202,18 @@
     <Filter Include="Source Files\gui\utils">
       <UniqueIdentifier>{295fd6e7-5a03-4f8a-9e9f-a674d454a278}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\gui\configscreen_screen">
+      <UniqueIdentifier>0E27B87F-9CB9-3FE1-62AA-84256C67621D</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui\configscreen_screen">
+      <UniqueIdentifier>4940547A-E4B5-34E2-C3D1-41C389D47222</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\configscreen_screen">
+      <UniqueIdentifier>C6DBC7C4-0276-2187-9978-DBCC3150554E</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\configscreen_screen">
+      <UniqueIdentifier>BF196208-9297-EDD2-1673-B4B7B05DA7CD</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(TouchGFXReleasePath)\framework\source\platform\driver\touch\SDL2TouchController.cpp">
@@ -275,6 +287,15 @@
     </ClCompile>
     <ClCompile Include="..\..\gui\src\utils\LinearSolve.cpp">
       <Filter>Source Files\gui\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\configscreen_screen\ConfigScreenPresenter.cpp">
+      <Filter>Source Files\gui\configscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\configscreen_screen\ConfigScreenView.cpp">
+      <Filter>Source Files\gui\configscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\configscreen_screen\ConfigScreenViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\configscreen_screen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -762,6 +783,15 @@
     </ClInclude>
     <ClInclude Include="..\..\gui\include\gui\utils\LinearSolve.hpp">
       <Filter>Header Files\gui\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\configscreen_screen\ConfigScreenPresenter.hpp">
+      <Filter>Header Files\gui\configscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\configscreen_screen\ConfigScreenView.hpp">
+      <Filter>Header Files\gui\configscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\configscreen_screen\ConfigScreenViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\configscreen_screen</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

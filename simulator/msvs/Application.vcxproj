@@ -35,6 +35,9 @@
     <ClCompile Include="..\..\gui\src\utils\LinearSolve.cpp"/>
     <ClCompile Include="..\..\gui\src\utils\QuadraticSolve.cpp"/>
     <ClCompile Include="..\..\gui\src\utils\RampCfg.cpp"/>
+    <ClCompile Include="..\..\gui\src\configscreen_screen\ConfigScreenPresenter.cpp"/>
+    <ClCompile Include="..\..\gui\src\configscreen_screen\ConfigScreenView.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\configscreen_screen\ConfigScreenViewBase.cpp"/>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(ApplicationRoot)\assets\texts\texts.xml"/>
@@ -200,6 +203,9 @@
     <ClInclude Include="..\..\gui\include\gui\utils\LinearSolve.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\utils\QuadraticSolve.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\utils\RampCfg.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\configscreen_screen\ConfigScreenPresenter.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\configscreen_screen\ConfigScreenView.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\configscreen_screen\ConfigScreenViewBase.hpp"/>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="$(ApplicationRoot)\generated\simulator\touchgfx.rc"/>

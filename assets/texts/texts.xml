@@ -13,6 +13,30 @@
     <Text Id="__SingleUse_LO2B" TypographyId="Large" Alignment="Left" Direction="LTR">
       <Translation Language="GB">.0123456789</Translation>
     </Text>
+    <Text Id="__SingleUse_GFTG" TypographyId="Default" Alignment="Center" Direction="LTR">
+      <Translation Language="GB">Done</Translation>
+    </Text>
+    <Text Id="__SingleUse_PDYI" TypographyId="Default" Alignment="Center" Direction="LTR">
+      <Translation Language="GB">Cancel</Translation>
+    </Text>
+    <Text Id="__SingleUse_UOBW" TypographyId="Large" Alignment="Right" Direction="LTR">
+      <Translation Language="GB">Ramp angle: &lt;*&gt;°</Translation>
+    </Text>
+    <Text Id="__SingleUse_ACX3" TypographyId="Large" Alignment="Left" Direction="LTR">
+      <Translation Language="GB">5</Translation>
+    </Text>
+    <Text Id="__SingleUse_K6QE" TypographyId="Default" Alignment="Left" Direction="LTR">
+      <Translation Language="GB">&lt;&gt;°</Translation>
+    </Text>
+    <Text Id="__SingleUse_RLW0" TypographyId="Default" Alignment="Left" Direction="LTR">
+      <Translation Language="GB">1</Translation>
+    </Text>
+    <Text Id="__SingleUse_F00R" TypographyId="Default" Alignment="Right" Direction="LTR">
+      <Translation Language="GB">&lt;&gt;°</Translation>
+    </Text>
+    <Text Id="__SingleUse_0XR5" TypographyId="Default" Alignment="Left" Direction="LTR">
+      <Translation Language="GB">55</Translation>
+    </Text>
   </Texts>
   <Typographies>
     <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" FallbackCharacter="?" />
