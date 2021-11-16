@@ -23,8 +23,9 @@ void MainScreenView::setupScreen() {
 
 	_Mechanic.init(cfg.Physics, &BallWidget);
 
-	_RampCfgLeft.setAngle(presenter->getAngle(), _RampRotLeftCenter);
-	_RampCfgRight.setAngle(presenter->getAngle(), _RampRotRightCenter);
+	auto angle = presenter->getAngle();
+	_RampCfgLeft.setAngle(angle, _RampRotLeftCenter);
+	_RampCfgRight.setAngle(-angle, _RampRotRightCenter);
 
 	prepareTrajectory();
 
