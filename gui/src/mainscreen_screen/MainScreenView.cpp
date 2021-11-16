@@ -22,7 +22,12 @@ void MainScreenView::setupScreen() {
 	_ScreenHeight = cfg.Geometry.ScreenHeight;
 
 	_Mechanic.init(cfg.Physics, &BallWidget);
-	
+
+	_RampCfgLeft.setAngle(presenter->getAngle(), _RampRotLeftCenter);
+	_RampCfgRight.setAngle(presenter->getAngle(), _RampRotRightCenter);
+
+	prepareTrajectory();
+
 	MainScreenViewBase::setupScreen();
 
 	BallWidget.setVisible(true);

@@ -23,9 +23,14 @@ public:
 
 	const Config::MainConfig_t& getMainConfig() const;
 	const Config::ConfigConfig_t& getConfigConfig() const;
+  
+    const int& getAngleValue() const;
+    void setAngleValue(int _angleValue);
 
 protected:
     ModelListener* modelListener;
+
+    int _angleValue = 25;
 };
 
 #endif // MODEL_HPP

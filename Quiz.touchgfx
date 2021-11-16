@@ -276,10 +276,11 @@
         ],
         "Interactions": [
           {
-            "InteractionName": "gotoMainScreenFromCancel",
+            "InteractionName": "gotoMainScreenFromDone",
+            "HasCompletedTrigger": true,
             "Trigger": {
               "Type": "TriggerClicked",
-              "TriggerComponent": "ButtonCancel"
+              "TriggerComponent": "ButtonDone"
             },
             "Action": {
               "Type": "ActionGotoScreen",
@@ -288,22 +289,21 @@
             }
           },
           {
-            "InteractionName": "saveSetAngle",
-            "HasCompletedTrigger": true,
+            "InteractionName": "saveAnglaValue",
             "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "ButtonDone"
+              "Type": "TriggerInteractionCompleted",
+              "InteractionToTriggerOn": "gotoMainScreenFromDone"
             },
             "Action": {
               "Type": "ActionCustom",
-              "FunctionName": "saveSetAngle"
+              "FunctionName": "saveAnglaValue"
             }
           },
           {
-            "InteractionName": "gotoMainScreenFromDone",
+            "InteractionName": "gotoMainScreenFromCancel",
             "Trigger": {
-              "Type": "TriggerInteractionCompleted",
-              "InteractionToTriggerOn": "saveSetAngle"
+              "Type": "TriggerClicked",
+              "TriggerComponent": "ButtonCancel"
             },
             "Action": {
               "Type": "ActionGotoScreen",

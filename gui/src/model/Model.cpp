@@ -20,3 +20,11 @@ const Config::MainConfig_t& Model::getMainConfig() const {
 const Config::ConfigConfig_t& Model::getConfigConfig() const {
 	return gCfg.Config;
 }
+
+const int& Model::getAngleValue() const{
+	return _angleValue;
+}
+
+void Model::setAngleValue(int _angleValue) {
+	this->_angleValue = _angleValue;
+}

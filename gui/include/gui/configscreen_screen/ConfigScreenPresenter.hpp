@@ -7,7 +7,9 @@
 using namespace touchgfx;
 
 class ConfigScreenView;
-
+namespace Config {
+    struct ConfigConfig_t;
+}
 class ConfigScreenPresenter : public touchgfx::Presenter, public ModelListener
 {
 public:
@@ -26,6 +28,11 @@ public:
     virtual void deactivate();
 
     virtual ~ConfigScreenPresenter() {};
+
+    const Config::ConfigConfig_t& getConfig() const;
+
+    const int& getAngle() const;
+    void setAngle(int angle);
 
 private:
     ConfigScreenPresenter();

@@ -7,3 +7,7 @@
 /simulator/msvs/screenshots
 *.sdf
 *.suo
+simulator/msvs/.vs/Application/v17/Preview/Browse.VC.db
+simulator/msvs/.vs/Application/v17/Preview/Browse.VC.db-shm
+simulator/msvs/.vs/Application/v17/Preview/Browse.VC.db-wal
+simulator/msvs/.vs/Application/v17/Preview/Browse.VC.opendb

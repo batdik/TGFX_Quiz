@@ -11,7 +11,15 @@ public:
     virtual ~ConfigScreenView() {}
     virtual void setupScreen();
     virtual void tearDownScreen();
+
 protected:
+    void handleTickEvent() final;
+    virtual void saveAnglaValue();
+	
+private:
+    touchgfx::Unicode::UnicodeChar _lowerStr[10];
+    touchgfx::Unicode::UnicodeChar _upperStr[10];
+    touchgfx::Unicode::UnicodeChar _angleValueStr[10];
 };
 
 #endif // CONFIGSCREENVIEW_HPP

@@ -29,6 +29,8 @@ public:
 	void deactivate() final;
 
 	const Config::MainConfig_t& getConfig() const;
+   
+    const int& getAngle() const;
 
 private:
     MainScreenPresenter();

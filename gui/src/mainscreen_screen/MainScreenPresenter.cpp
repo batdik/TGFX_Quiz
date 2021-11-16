@@ -19,3 +19,7 @@ void MainScreenPresenter::deactivate()
 const Config::MainConfig_t& MainScreenPresenter::getConfig() const {
 	return model->getMainConfig();
 }
+
+const int& MainScreenPresenter::getAngle() const {
+	return model->getAngleValue();
+}
