@@ -42,6 +42,12 @@ protected:
 	void handleTickEvent() final;
 	void startAnimation() final;
 	void prepareTrajectory();
+
+private:
+	static constexpr uint8_t _SpeedStrSize = 10;
+	touchgfx::Unicode::UnicodeChar _speedStr[_SpeedStrSize];
+
+	void updateSpeedTxt(float value);
 };
 
 #endif // MAINSCREENVIEW_HPP
