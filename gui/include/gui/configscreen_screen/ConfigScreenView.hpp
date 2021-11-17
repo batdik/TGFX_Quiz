@@ -17,9 +17,12 @@ protected:
     virtual void saveAnglaValue();
 	
 private:
-    touchgfx::Unicode::UnicodeChar _lowerStr[10];
-    touchgfx::Unicode::UnicodeChar _upperStr[10];
-    touchgfx::Unicode::UnicodeChar _angleValueStr[10];
+    static constexpr uint8_t StrSize = 10;
+    touchgfx::Unicode::UnicodeChar _lowerStr[StrSize];
+    touchgfx::Unicode::UnicodeChar _upperStr[StrSize];
+    touchgfx::Unicode::UnicodeChar _angleValueStr[StrSize];
+
+    int lastAngleValue = 1;
 };
 
 #endif // CONFIGSCREENVIEW_HPP

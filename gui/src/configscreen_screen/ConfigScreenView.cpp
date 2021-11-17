@@ -12,8 +12,8 @@ void ConfigScreenView::setupScreen()
     auto & cfg = presenter->getConfig();
 
     sliderSetAngle.setValueRange(cfg.MinAngle, cfg.MaxAngle);
-    touchgfx::Unicode::itoa(cfg.MinAngle, _lowerStr, 10, 10);
-    touchgfx::Unicode::itoa(cfg.MaxAngle, _upperStr, 10, 10);
+    touchgfx::Unicode::itoa(cfg.MinAngle, _lowerStr, StrSize, 10);
+    touchgfx::Unicode::itoa(cfg.MaxAngle, _upperStr, StrSize, 10);
   
     lowerBoundaries.setWildcard(_lowerStr);
     upperBoundaries.setWildcard(_upperStr);
@@ -21,6 +21,7 @@ void ConfigScreenView::setupScreen()
     lowerBoundaries.invalidate();
 
     sliderSetAngle.setValue(presenter->getAngle());  
+    handleTickEvent();
 }
 
 void ConfigScreenView::tearDownScreen()
@@ -29,12 +30,16 @@ void ConfigScreenView::tearDownScreen()
 }
 
 void ConfigScreenView::handleTickEvent() {
-    touchgfx::Unicode::itoa(sliderSetAngle.getValue(), _angleValueStr, 10, 10);
+    if (lastAngleValue == sliderSetAngle.getValue())
+        return;
+
+    lastAngleValue = sliderSetAngle.getValue();
+    touchgfx::Unicode::itoa(lastAngleValue, _angleValueStr, StrSize, 10);
     rampAngle.setWildcard(_angleValueStr);
     rampAngle.invalidate();
 }
 
 void ConfigScreenView::saveAnglaValue()
 {
-   presenter->setAngle(sliderSetAngle.getValue());
+   presenter->setAngle(lastAngleValue);
 }
