@@ -27,6 +27,8 @@ public:
     const int& getAngleValue() const;
     void setAngleValue(int _angleValue);
 
+    const int& getSpeedUpdateInterval() const;
+
 protected:
     ModelListener* modelListener;
 

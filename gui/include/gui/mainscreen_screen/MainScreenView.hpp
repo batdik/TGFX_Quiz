@@ -47,6 +47,7 @@ private:
 	static constexpr uint8_t _SpeedStrSize = 10;
 	touchgfx::Unicode::UnicodeChar _speedStr[_SpeedStrSize];
 
+	int tickUpdateInterval;
 	void updateSpeedTxt(float value);
 };
 

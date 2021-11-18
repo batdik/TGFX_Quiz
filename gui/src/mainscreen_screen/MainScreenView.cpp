@@ -33,7 +33,8 @@ void MainScreenView::setupScreen() {
 
 	BallWidget.setVisible(true);
 	BallWidget.setTouchable(false);
-
+	
+	tickUpdateInterval = 0;
 	updateSpeedTxt(0.0);
 }
 
@@ -44,7 +45,11 @@ void MainScreenView::tearDownScreen() {
 void MainScreenView::handleTickEvent() {
 	if (_Animation) {
 		//TODO update interval
-		updateSpeedTxt(_Mechanic.getSpeed());
+		if (++tickUpdateInterval == presenter->getUpdateInterval()) {
+			tickUpdateInterval = 0;
+			updateSpeedTxt(_Mechanic.getSpeed());
+		}
+
 		
 		auto now = std::chrono::high_resolution_clock::now();
 		std::chrono::duration<double> elapsed_sec = now - _TS;

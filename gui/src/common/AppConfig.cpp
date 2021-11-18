@@ -21,10 +21,13 @@ namespace {
 
 	const auto BALL_S_OFFSET = 30;
 
+	const auto SPEED_UPDATE_INTERVAL = 5;
+
 	void populateConfig(ConfigConfig_t& cfg);
 	void populateMain(MainConfig_t& cfg);
 	void populateGeometry(GeometryCfg_t& cfg);
 	void populatePhysics(PhysicsCofig_t& cfg);
+	void populateSpeedUpdateInterval(SpeedUpdateIntervalCfg_t& cfg);
 
 	void populateGeometry(GeometryCfg_t& cfg) {
 		cfg.LineWidht = LINE_WIDHT;
@@ -40,9 +43,14 @@ namespace {
 		cfg.Scale = SCALE;
 	}
 
+	void populateSpeedUpdateInterval(SpeedUpdateIntervalCfg_t& cfg) {
+		cfg.SpeedInterval = SPEED_UPDATE_INTERVAL;
+	}
+	
 	void populateMain(MainConfig_t& cfg) {
 		populatePhysics(cfg.Physics);
 		populateGeometry(cfg.Geometry);
+
 	}
 
 	void populateConfig(ConfigConfig_t& cfg) {
@@ -54,4 +62,5 @@ namespace {
 void AppConfig::populateConfiguration(AppCfg_t& cfg) {
 	populateMain(cfg.Main);
 	populateConfig(cfg.Config);
+	populateSpeedUpdateInterval(cfg.SpeedUpdateInterval);
 }

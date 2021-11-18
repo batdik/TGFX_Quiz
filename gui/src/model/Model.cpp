@@ -28,3 +28,7 @@ const int& Model::getAngleValue() const{
 void Model::setAngleValue(int _angleValue) {
 	this->_angleValue = _angleValue;
 }
+
+const int& Model::getSpeedUpdateInterval() const {
+	return gCfg.SpeedUpdateInterval.SpeedInterval;
+}

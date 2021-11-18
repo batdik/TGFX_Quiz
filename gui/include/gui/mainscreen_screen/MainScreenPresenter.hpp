@@ -31,6 +31,7 @@ public:
 	const Config::MainConfig_t& getConfig() const;
    
     const int& getAngle() const;
+    const int& getUpdateInterval() const;
 
 private:
     MainScreenPresenter();

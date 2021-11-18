@@ -18,6 +18,10 @@ namespace Config {
 		int32_t ScreenHeight = -1;
 	};
 
+	struct SpeedUpdateIntervalCfg_t {
+		int SpeedInterval = 0;
+	};
+
 	struct MainConfig_t {
 		PhysicsCofig_t Physics;
 		GeometryCfg_t Geometry;
@@ -31,6 +35,7 @@ namespace Config {
 	struct AppCfg_t {
 		MainConfig_t Main;
 		ConfigConfig_t Config;
+		SpeedUpdateIntervalCfg_t SpeedUpdateInterval;
 	};
 }
 

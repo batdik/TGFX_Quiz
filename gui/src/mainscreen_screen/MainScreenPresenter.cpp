@@ -23,3 +23,7 @@ const Config::MainConfig_t& MainScreenPresenter::getConfig() const {
 const int& MainScreenPresenter::getAngle() const {
 	return model->getAngleValue();
 }
+
+const int& MainScreenPresenter::getUpdateInterval() const {
+	return model->getSpeedUpdateInterval();
+}
