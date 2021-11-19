@@ -39,16 +39,19 @@ protected:
 	Point _Trajectory[POINT_NUMB];
 	std::chrono::system_clock::time_point _TS;
 
+	double _rotationBall = 0.0;
+
 	void handleTickEvent() final;
 	void startAnimation() final;
 	void prepareTrajectory();
 
 private:
+	touchgfx::Point _CurrentBallPoint{};
 	static constexpr uint8_t _SpeedStrSize = 10;
 	touchgfx::Unicode::UnicodeChar _speedStr[_SpeedStrSize];
 
 	int tickUpdateInterval;
-	void updateSpeedTxt(float value);
+	void updateSpeedTxt();
 };
 
 #endif // MAINSCREENVIEW_HPP

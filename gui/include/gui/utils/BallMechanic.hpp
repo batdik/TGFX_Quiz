@@ -21,7 +21,10 @@ public:
 	void processing(double sec);
 	void reset();
 	double getSpeed() const;
-
+	const touchgfx::Point& getCurrentPoint() const{
+		return _Current;
+	}
+	bool getBackward() { return _Backward; }
 private:
 	static const double BALL_K;
 	double _GravityAcc = 0;

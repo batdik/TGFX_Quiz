@@ -7,7 +7,7 @@ class BallWidget : public BallWidgetBase
 {
 public:
 	void initialize() final;
-	
+	void rotate(float step);
 };
 
 #endif // BALLWIDGET_HPP

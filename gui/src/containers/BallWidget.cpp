@@ -10,3 +10,7 @@ void BallWidget::initialize() {
 	setVisible(false);
 	setTouchable(false);
 }
+
+void BallWidget::rotate(float step) {
+	textureMapper1.updateZAngle(step);
+}

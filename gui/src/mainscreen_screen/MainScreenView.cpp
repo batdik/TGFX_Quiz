@@ -4,6 +4,7 @@
 
 #include "gui/common/Configuration.hpp"
 #include <gui/utils/Geometry.hpp>
+#include "gui/utils/BallGeometry.hpp"
 
 MainScreenView::MainScreenView() : _RampCfgLeft(RampLeft), _RampCfgRight(RampRight) {
 	_RampRotLeftCenter.x = -1;
@@ -21,21 +22,24 @@ void MainScreenView::setupScreen() {
 	_ScreenWidth = cfg.Geometry.ScreenWidth;
 	_ScreenHeight = cfg.Geometry.ScreenHeight;
 
-	_Mechanic.init(cfg.Physics, &BallWidget);
-
 	auto angle = presenter->getAngle();
 	_RampCfgLeft.setAngle(angle, _RampRotLeftCenter);
 	_RampCfgRight.setAngle(-angle, _RampRotRightCenter);
 
+	_Mechanic.init(cfg.Physics, &BallWidget);
+
+	tickUpdateInterval = 0;
+
 	prepareTrajectory();
 
-	MainScreenViewBase::setupScreen();
+	updateSpeedTxt();
 
+	_CurrentBallPoint = {BallWidget.getX(), BallWidget.getY()};
+	_rotationBall = 0.0;
+
+	MainScreenViewBase::setupScreen();
 	BallWidget.setVisible(true);
 	BallWidget.setTouchable(false);
-	
-	tickUpdateInterval = 0;
-	updateSpeedTxt(0.0);
 }
 
 void MainScreenView::tearDownScreen() {
@@ -44,19 +48,37 @@ void MainScreenView::tearDownScreen() {
 
 void MainScreenView::handleTickEvent() {
 	if (_Animation) {
-		//TODO update interval
+		
 		if (++tickUpdateInterval == presenter->getUpdateInterval()) {
 			tickUpdateInterval = 0;
-			updateSpeedTxt(_Mechanic.getSpeed());
+			updateSpeedTxt();
 		}
-
-		
+				
 		auto now = std::chrono::high_resolution_clock::now();
 		std::chrono::duration<double> elapsed_sec = now - _TS;
 #ifdef NDEBUG
 		_TS = now;
 #endif
 		_Mechanic.processing(elapsed_sec.count());
+		
+		const touchgfx::Point NewBallPoint = _Mechanic.getCurrentPoint();
+		if (_CurrentBallPoint.x != NewBallPoint.x) {
+			const double r = BallWidget.getWidth() / 2.0;
+			double distance = Geometry::getDistance(_CurrentBallPoint, NewBallPoint);
+			//BallGeometry::correction(data, points_numb, r);
+			double rotationAngle = Geometry::getRotationAngle(distance, r);
+			if (_Mechanic.getBackward()) {
+				_rotationBall -= rotationAngle;
+			}
+			else {
+			_rotationBall += rotationAngle;
+
+			}
+			BallWidget.rotate(_rotationBall);
+
+			_CurrentBallPoint = NewBallPoint;
+		}
+
 #if !defined(NDEBUG)
 		_TS = std::chrono::high_resolution_clock::now();
 #endif
@@ -85,8 +107,9 @@ void MainScreenView::prepareTrajectory() {
 	assert(POINT_NUMB == indx);
 	_Mechanic.setTrajectory(_Trajectory, POINT_NUMB);
 }
-void MainScreenView::updateSpeedTxt(float value) {
-	touchgfx::Unicode::snprintfFloat(_speedStr, _SpeedStrSize, "%.1f", value);
+
+void MainScreenView::updateSpeedTxt() {
+	touchgfx::Unicode::snprintfFloat(_speedStr, _SpeedStrSize, "%.1f", _Mechanic.getSpeed());
 	Speed.setWildcard(_speedStr);
 	Speed.invalidate();
 }
