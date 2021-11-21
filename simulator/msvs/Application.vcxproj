@@ -29,7 +29,6 @@
     <ClCompile Include="..\..\generated\gui_generated\src\containers\BallWidgetBase.cpp"/>
     <ClCompile Include="..\..\gui\src\utils\BallGeometry.cpp"/>
     <ClCompile Include="..\..\gui\src\utils\BallMechanic.cpp"/>
-    <ClCompile Include="..\..\gui\src\utils\Geometry.cpp"/>
     <ClCompile Include="..\..\gui\src\containers\RampWidget.cpp"/>
     <ClCompile Include="..\..\generated\gui_generated\src\containers\RampWidgetBase.cpp"/>
     <ClCompile Include="..\..\gui\src\utils\LinearSolve.cpp"/>
@@ -38,6 +37,7 @@
     <ClCompile Include="..\..\gui\src\configscreen_screen\ConfigScreenPresenter.cpp"/>
     <ClCompile Include="..\..\gui\src\configscreen_screen\ConfigScreenView.cpp"/>
     <ClCompile Include="..\..\generated\gui_generated\src\configscreen_screen\ConfigScreenViewBase.cpp"/>
+    <ClCompile Include="Geometry.cpp"/>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(ApplicationRoot)\assets\texts\texts.xml"/>

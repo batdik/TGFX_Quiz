@@ -25,14 +25,14 @@ public:
 	const Config::ConfigConfig_t& getConfigConfig() const;
   
     const int& getAngleValue() const;
-    void setAngleValue(int _angleValue);
+    void setAngleValue(int angleValue);
 
     const int& getSpeedUpdateInterval() const;
 
 protected:
     ModelListener* modelListener;
 
-    int _angleValue = 25;
+    int _angleValue = 45;
 };
 
 #endif // MODEL_HPP

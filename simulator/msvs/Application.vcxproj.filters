@@ -264,9 +264,6 @@
     <ClCompile Include="..\..\gui\src\common\AppConfig.cpp">
       <Filter>Source Files\gui\common</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\gui\src\utils\Geometry.cpp">
-      <Filter>Source Files\gui\utils</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\gui\src\containers\RampWidget.cpp">
       <Filter>Source Files\gui\containers</Filter>
     </ClCompile>
@@ -296,6 +293,9 @@
     </ClCompile>
     <ClCompile Include="..\..\generated\gui_generated\src\configscreen_screen\ConfigScreenViewBase.cpp">
       <Filter>Source Files\generated\gui_generated\configscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="Geometry.cpp">
+      <Filter>Source Files\gui\utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

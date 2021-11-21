@@ -14,6 +14,8 @@ MainScreenView::MainScreenView() : _RampCfgLeft(RampLeft), _RampCfgRight(RampRig
 }
 
 void MainScreenView::setupScreen() {	
+	MainScreenViewBase::setupScreen();
+
 	auto & cfg = presenter->getConfig();
 	_Ball_S_Offset = cfg.Geometry.Ball_S_Offset;
 	_LineWidht = cfg.Geometry.LineWidht;
@@ -21,23 +23,21 @@ void MainScreenView::setupScreen() {
 	_RampRotRightCenter = cfg.Geometry.RampRotationCenterRight;
 	_ScreenWidth = cfg.Geometry.ScreenWidth;
 	_ScreenHeight = cfg.Geometry.ScreenHeight;
-
-	auto angle = presenter->getAngle();
+	
+	double angle = presenter->getAngle();
 	_RampCfgLeft.setAngle(angle, _RampRotLeftCenter);
-	_RampCfgRight.setAngle(-angle, _RampRotRightCenter);
+	_RampCfgRight.setAngle(180 - angle, _RampRotRightCenter);
 
 	_Mechanic.init(cfg.Physics, &BallWidget);
 
-	tickUpdateInterval = 0;
-
 	prepareTrajectory();
-
-	updateSpeedTxt();
 
 	_CurrentBallPoint = {BallWidget.getX(), BallWidget.getY()};
 	_rotationBall = 0.0;
+	
+	showSpeedTxt();
+	_tickUpdateInterval = _refreshRate = 0;
 
-	MainScreenViewBase::setupScreen();
 	BallWidget.setVisible(true);
 	BallWidget.setTouchable(false);
 }
@@ -47,12 +47,8 @@ void MainScreenView::tearDownScreen() {
 }
 
 void MainScreenView::handleTickEvent() {
-	if (_Animation) {
-		
-		if (++tickUpdateInterval == presenter->getUpdateInterval()) {
-			tickUpdateInterval = 0;
-			updateSpeedTxt();
-		}
+	if (_Animation) {		
+		updateSpeedTxt();
 				
 		auto now = std::chrono::high_resolution_clock::now();
 		std::chrono::duration<double> elapsed_sec = now - _TS;
@@ -62,18 +58,19 @@ void MainScreenView::handleTickEvent() {
 		_Mechanic.processing(elapsed_sec.count());
 		
 		const touchgfx::Point NewBallPoint = _Mechanic.getCurrentPoint();
+
 		if (_CurrentBallPoint.x != NewBallPoint.x) {
-			const double r = BallWidget.getWidth() / 2.0;
 			double distance = Geometry::getDistance(_CurrentBallPoint, NewBallPoint);
-			//BallGeometry::correction(data, points_numb, r);
-			double rotationAngle = Geometry::getRotationAngle(distance, r);
+			
+			double rotationAngle = Geometry::getRotationAngle(distance, BallWidget.getWidth() / 2.0);
+			
 			if (_Mechanic.getBackward()) {
 				_rotationBall -= rotationAngle;
 			}
 			else {
-			_rotationBall += rotationAngle;
-
+				_rotationBall += rotationAngle;
 			}
+
 			BallWidget.rotate(_rotationBall);
 
 			_CurrentBallPoint = NewBallPoint;
@@ -109,7 +106,24 @@ void MainScreenView::prepareTrajectory() {
 }
 
 void MainScreenView::updateSpeedTxt() {
+	if (++_tickUpdateInterval <= presenter->getUpdateInterval()) {
+		return;
+	}
+	_tickUpdateInterval = 0;
+	
+	float refresh = log(presenter->getAngle());
+	refresh = round(refresh);
+	if (++_refreshRate <= refresh) {
+		return;
+	}
+
+	_refreshRate = 0;
+	showSpeedTxt();
+}
+
+void MainScreenView::showSpeedTxt() {
 	touchgfx::Unicode::snprintfFloat(_speedStr, _SpeedStrSize, "%.1f", _Mechanic.getSpeed());
 	Speed.setWildcard(_speedStr);
 	Speed.invalidate();
+
 }

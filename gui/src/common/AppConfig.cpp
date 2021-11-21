@@ -21,7 +21,7 @@ namespace {
 
 	const auto BALL_S_OFFSET = 30;
 
-	const auto SPEED_UPDATE_INTERVAL = 5;
+	const auto SPEED_UPDATE_INTERVAL = 4;
 
 	void populateConfig(ConfigConfig_t& cfg);
 	void populateMain(MainConfig_t& cfg);

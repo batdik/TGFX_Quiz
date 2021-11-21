@@ -8,11 +8,12 @@ namespace touchgfx {
 
 class RampCfg {
 public:
-	RampCfg(RampWidget &wiget);
-	void setAngle(double ang, const touchgfx::Point & rot_point);
+	RampCfg(RampWidget& wiget);
+	void setAngle(double ang, const touchgfx::Point& rot_point);
 
 private:
-	RampWidget & _Wiget;
+	RampWidget& _Wiget;
 };
+
 
 #endif

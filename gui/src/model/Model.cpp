@@ -25,8 +25,8 @@ const int& Model::getAngleValue() const{
 	return _angleValue;
 }
 
-void Model::setAngleValue(int _angleValue) {
-	this->_angleValue = _angleValue;
+void Model::setAngleValue(int angleValue) {
+	_angleValue = angleValue;
 }
 
 const int& Model::getSpeedUpdateInterval() const {
